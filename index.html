@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QueryBridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="navbar">
+    <div class="title">QueryBridge</div>
+    <div class="nav-links">
+        Welcome, admin |
+        <a href="#">Query History</a> |
+        <a href="#">Logout</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+    <h2>Enter Your Query in English</h2>
+
+    <div class="query-box">
+        <input type="text"
+               id="queryInput"
+               placeholder="e.g. show students where age greater than 20"
+               onkeyup="showSuggestions()">
+
+        <button onclick="executeQuery()">Execute Query</button>
+
+        <!-- Suggestions -->
+        <div id="suggestions" class="suggestions-box"></div>
+
+        <!-- Pattern Highlight -->
+        <div id="patternHint" class="pattern-hint"></div>
+    </div>
+
+    <!-- Generated SQL -->
+    <div class="sql-box">
+        <h3>Generated SQL Query:</h3>
+        <div id="sqlOutput" class="sql-output"></div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-box">
+        <h3>Query Results:</h3>
+
+        <table>
+            <thead id="resultHead">
+                <!-- Dynamic column headers -->
+            </thead>
+            <tbody id="resultBody">
+                <!-- Dynamic rows -->
+            </tbody>
+        </table>
+
+        <!-- Status Message -->
+        <div id="statusMessage"></div>
+
+        <!-- Export Buttons (UI Only for Now) -->
+        <div class="export-buttons">
+            <button class="csv">Export to CSV</button>
+            <button class="pdf">Export to PDF</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
