@@ -1,6 +1,6 @@
-/* =====================================================
-   MOCK DATABASE (FOR DYNAMIC RESULTS)
-===================================================== */
+
+/* MOCK DATABASE (FOR DYNAMIC RESULTS) */
+
 const mockDB = {
     students: [
         { id: 1, name: "Arun", age: 20 },
@@ -12,9 +12,8 @@ const mockDB = {
     ]
 };
 
-/* =====================================================
-   QUERY SUGGESTION TEMPLATES (GUIDANCE)
-===================================================== */
+/* QUERY SUGGESTION TEMPLATES (GUIDANCE) */
+
 const templates = [
     "show tables",
     "describe students",
@@ -27,9 +26,8 @@ const templates = [
     "DELETE FROM students WHERE age > 56;"
 ];
 
-/* =====================================================
-   SMART NON-AI CORRECTIONS
-===================================================== */
+/* SMART NON-AI CORRECTIONS */
+
 function normalizeQuery(query) {
     let q = query.toLowerCase().trim();
 
@@ -50,9 +48,8 @@ function normalizeQuery(query) {
     return q;
 }
 
-/* =====================================================
-   SHOW SUGGESTIONS + STATUS
-===================================================== */
+/* SHOW SUGGESTIONS + STATUS */
+
 function showSuggestions() {
     const rawInput = document.getElementById("queryInput").value;
     const input = normalizeQuery(rawInput);
@@ -94,9 +91,8 @@ function showSuggestions() {
     box.style.display = box.children.length ? "block" : "none";
 }
 
-/* =====================================================
-   QUERY TYPE CHECKERS
-===================================================== */
+/* QUERY TYPE CHECKERS */
+
 function isDirectSQL(query) {
     const q = query.toLowerCase();
     return (
@@ -122,9 +118,8 @@ function isSupportedEnglish(query) {
     );
 }
 
-/* =====================================================
-   ENGLISH → SQL CONVERSION
-===================================================== */
+/* ENGLISH → SQL CONVERSION */
+
 function englishToSQL(query) {
     const q = query.toLowerCase();
 
@@ -172,9 +167,8 @@ function englishToSQL(query) {
     return null;
 }
 
-/* =====================================================
-   DYNAMIC TABLE RENDERING
-===================================================== */
+/* DYNAMIC TABLE RENDERING */
+
 function renderTable(columns, rows) {
     const tbody = document.getElementById("resultBody");
     tbody.innerHTML = "";
@@ -190,9 +184,8 @@ function renderTable(columns, rows) {
     });
 }
 
-/* =====================================================
-   EXECUTE MOCK RESULTS (DYNAMIC)
-===================================================== */
+/* EXECUTE MOCK RESULTS (DYNAMIC) */
+
 function executeMockResult(sql) {
     const status = document.getElementById("statusMessage");
     status.innerText = "";
@@ -225,9 +218,8 @@ function executeMockResult(sql) {
     document.getElementById("resultBody").innerHTML = "";
 }
 
-/* =====================================================
-   EXECUTE QUERY
-===================================================== */
+/* EXECUTE QUERY */
+
 function executeQuery() {
     const rawInput = document.getElementById("queryInput").value;
     const input = normalizeQuery(rawInput);
